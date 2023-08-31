@@ -191,12 +191,14 @@ if [ "$num_interfaces" -eq 0 ]; then
 elif [ "$num_interfaces" -eq 1 ]; then
   interface="$wireless_interfaces"
   echo "Wi-Fi connected on interface: $interface"
+  iwconfig $interface
   main_loop
 else
   echo "Choose interface:"
   select interface in $wireless_interfaces; do
     if [[ ! -z "$interface" ]]; then
       echo "Wi-Fi connected on interface: $interface"
+      iwconfig $interface
       main_loop
       break
     else
