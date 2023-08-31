@@ -33,7 +33,7 @@ RSSI_YELLOW_MIN=-70
 RSSI_RED_MAX=-70
 RSSI_RED_MIN=-85
 RSSI_CYAN_MAX=-85
-RSSI_CYAN_MIN=-85
+RSSI_CYAN_MIN=-100
 
 # create file with timestamp
 timestamp=$(date "+%Y%m%d%H%M%S")
