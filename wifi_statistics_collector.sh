@@ -137,10 +137,10 @@ get_wifi_stats() {
   fi
 
   # save to file
-  echo "$current_time, $link_quality_percent%, $signal_level" >> $filename
+  echo "$current_time, $xx, $yy, $signal_level" >> $filename
 
   # log info
-  printf "%-31s" "$current_time, LQI=$link_quality_percent%, "
+  printf "%-38s" "$current_time, LQI=$xx/$yy($link_quality_percent%), "
   printf "%-13s" "[rssi=$signal_level]  "
   echo -ne "[-100dBm "
   # draw rssi
@@ -161,7 +161,7 @@ main_loop() {
   read_filename
   read_times=$((measurement_time/interval))
   echo "Read in $measurement_time seconds with interval $interval seconds: $read_times times"
-  echo "date, LQI, rssi (dBm)" >> $filename
+  echo "date, LQI, LQI MAX, rssi (dBm)" >> $filename
   echo "Realtime data:"
   local i=1
   for ((; i <= read_times; i += 1)); do
